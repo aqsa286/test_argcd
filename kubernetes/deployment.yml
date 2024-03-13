@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-argocd
+  labels:
+    app: test-argocd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-argocd
+  template:
+    metadata:
+      labels:
+        app: test-argocd
+    spec:
+      containers:
+      - name: test-argocd-container
+        image: public.ecr.aws/z4o1w1t1/test-argocd:latest
+        ports:
+        - containerPort: 3000
