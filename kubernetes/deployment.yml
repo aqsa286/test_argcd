@@ -14,10 +14,9 @@ spec:
       labels:
         app: test-argocd
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: ip-172-31-7-233.ec2.internal # Add your specific nodeSelector here
       containers:
       - name: test-argocd-container
         image: public.ecr.aws/z4o1w1t1/test-argocd:latest
         ports:
         - containerPort: 3000
+        imagePullPolicy: Always
